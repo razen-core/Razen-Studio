@@ -113,8 +113,14 @@ h1, h2, h3, h4, h5, h6 {
     flex-grow: 1; /* Allow it to take available space */
 }
 
+.nav-menu {
+    margin-bottom: 1rem;
+}
+
 .close-btn {
     padding: 8px;
+    width: 2rem;
+    height: 2rem;
 }
 
 .settings-nav-btn { /* Renamed from tab-btn to avoid potential conflicts */
@@ -283,7 +289,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
     list-style: none;
-    margin-top: 0.25rem;
+    margin-top: 1rem;
     padding: 0.5rem 0;
     z-index: 10;
     max-height: 200px;
@@ -316,12 +322,16 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1rem;
 }
 
+.font-preview-container pre {
+    border-radius: var(--radius-md);
+}
+
 #font-preview-code {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     padding: 1rem;
-    font-size: 14px;
+    font-size: 14px; 
     line-height: 1.5;
     white-space: pre;
     overflow-x: auto;
