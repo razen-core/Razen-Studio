@@ -49,8 +49,6 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1;
     padding: 2rem;
     background-color: var(--bg-primary);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
     overflow-y: auto;
     height: 100%; /* Takes remaining height */
     box-sizing: border-box; /* Include padding/border in height */
@@ -247,7 +245,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
     border: 1px solid var(--border-color);
     padding: 0.75rem 1.2rem;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xl);
     cursor: pointer;
     font-family: 'Nata Sans', sans-serif;
     font-size: 1rem;
@@ -287,7 +285,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     background-color: var(--bg-tertiary);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xl);
     list-style: none;
     margin-top: 1rem;
     padding: 0.5rem 0;
@@ -323,13 +321,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .font-preview-container pre {
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xl);
 }
 
 #font-preview-code {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xl);
     padding: 1rem;
     font-size: 14px; 
     line-height: 1.5;

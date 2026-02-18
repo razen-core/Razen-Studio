@@ -147,7 +147,7 @@ a {
     transition: all 0.3s ease;
 }
 
-#search-projects-input:focus {
+#search-projects-input:focus, .input-field:focus {
     outline: none;
     border-color: var(--accent-primary);
     box-shadow: 0 0 0 4px oklch(from var(--accent-primary) l c h / 0.2);
@@ -274,14 +274,15 @@ a {
 }
 
 .input-field {
-    width: 100%;
-    padding: 0.75rem;
-    margin-top: 1rem;
+    width: 275px;
+    padding: 0.75rem 1rem 0.75rem 1rem;
+    border-radius: var(--radius-xl);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
     background-color: var(--bg-tertiary);
     color: var(--text-primary);
+    font-family: 'Nata Sans', sans-serif;
     font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 /* Responsive adjustments */
