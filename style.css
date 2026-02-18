@@ -472,7 +472,7 @@ header h1 {
     color: var(--text-primary);
     border: 1px solid var(--border-color);
     padding: 0.5rem 1rem;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     cursor: pointer;
     font-family: 'Mozilla Text', sans-serif;
     font-weight: 500;

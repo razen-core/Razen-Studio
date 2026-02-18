@@ -91,8 +91,9 @@ a {
 }
 
 #theme-toggle {
-    width: 41px;
-    height: 41px;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: var(--radius-md);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,6 +112,11 @@ a {
     background-color: var(--accent-primary);
     color: var(--bg-primary);
     font-weight: 700;
+}
+
+#create-project-btn {
+    height: 2.65rem;
+    border-radius: var(--radius-md);
 }
 
 .btn-primary:hover {
