@@ -1,19 +1,25 @@
 /* style.css */
 :root {
-    --bg-primary: #1e1e2e;
-    --bg-secondary: #252536;
-    --bg-tertiary: #2d2d44;
-    --text-primary: #cdd6f4;
-    --text-secondary: #a6adc8;
-    --accent-primary: #89b4fa;
-    --accent-secondary: #cba6f7;
-    --border-color: #45475a;
-    --success: #a6e3a1;
-    --warning: #f9e2af;
-    --error: #f38ba8;
-    --line-number: #6c7086;
-    --autocomplete-bg: #313244;
-    --autocomplete-hover: #45475a;
+    --bg-primary: oklch(25% 0.02 260);
+    --bg-secondary: oklch(28% 0.02 260);
+    --bg-tertiary: oklch(32% 0.03 260);
+    --text-primary: oklch(90% 0.01 260);
+    --text-secondary: oklch(75% 0.02 260);
+    --accent-primary: oklch(75% 0.12 250);
+    --accent-secondary: oklch(80% 0.12 300);
+    --border-color: oklch(40% 0.03 260 / 0.5);
+    --success: oklch(80% 0.12 150);
+    --warning: oklch(85% 0.15 80);
+    --error: oklch(65% 0.18 20);
+    --line-number: oklch(50% 0.02 260);
+    --autocomplete-bg: oklch(30% 0.03 260);
+    --autocomplete-hover: oklch(40% 0.03 260);
+
+    --radius-xl: 24px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --radius-xs: 4px;
 }
 
 * {
@@ -22,12 +28,35 @@
     box-sizing: border-box;
 }
 
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--radius-xl);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
 body {
     font-family: 'Nata Sans', sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     height: 100vh;
     overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .container {
@@ -39,7 +68,8 @@ body {
     position: absolute;
     width: 250px;
     height: 100%;
-    background-color: var(--bg-secondary);
+    background-color: oklch(from var(--bg-secondary) l c h / 0.8);
+    backdrop-filter: blur(12px);
     padding: 1rem;
     border-right: 1px solid var(--border-color);
     display: flex;
@@ -80,7 +110,7 @@ body {
     font-size: 1rem;
     padding: 8px 12px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
 }
 
 .sidebar-actions-top .btn:hover {
@@ -91,12 +121,13 @@ body {
 .context-menu {
     position: absolute;
     z-index: 1000;
-    background-color: var(--bg-tertiary);
+    background-color: oklch(from var(--bg-tertiary) l c h / 0.9);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    padding: 5px 0;
-    width: 150px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px oklch(0% 0 0 / 0.3);
+    padding: 6px;
+    width: 180px;
 }
 
 .context-menu ul {
@@ -106,17 +137,20 @@ body {
 }
 
 .context-menu li {
-    padding: 8px 15px;
+    padding: 10px 12px;
     cursor: pointer;
     color: var(--text-primary);
     display: flex;
     align-items: center;
     font-size: 0.9rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
 }
 
 .context-menu li:hover {
     background-color: var(--accent-primary);
     color: var(--bg-primary);
+    transform: translateX(4px);
 }
 
 .context-menu li i {
@@ -152,7 +186,8 @@ main {
 }
 
 header {
-    background-color: var(--bg-secondary);
+    background-color: oklch(from var(--bg-secondary) l c h / 0.8);
+    backdrop-filter: blur(12px);
     padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -172,9 +207,9 @@ header {
 }
 
 header h1 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -197,17 +232,25 @@ header h1 {
 
 .active-file {
     background-color: var(--bg-tertiary);
-    padding: 0.35rem 0.8rem; /* Reduced padding */
-    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
     border: 1px solid transparent;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
 }
 
 .active-file.active {
-    border-color: var(--accent-primary);
+    background-color: var(--bg-primary);
+    border-color: var(--border-color);
+    border-bottom-color: var(--accent-primary);
+}
+
+.active-file:hover:not(.active) {
+    background-color: var(--bg-secondary);
 }
 
 .close-btn {
@@ -240,25 +283,27 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 6px 5px;
+    padding: 8px 10px;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
+    border-radius: var(--radius-md);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
     text-align: left;
     background: none;
     border: none;
     color: var(--text-primary);
     font-family: 'Nata Sans', sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
 }
 
 .file-tree-item:hover {
     background-color: var(--bg-tertiary);
+    padding-left: 12px;
 }
 
 .file-tree-item.active {
-    background-color: var(--accent-primary-translucent, rgba(137, 180, 250, 0.2));
+    background-color: oklch(from var(--accent-primary) l c h / 0.2);
     font-weight: 500;
     color: var(--accent-primary);
 }
@@ -368,7 +413,7 @@ header h1 {
     color: var(--text-secondary);
     padding: 0.25rem 0.5rem;
     font-size: 0.9rem;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
 }
 
@@ -382,11 +427,12 @@ header h1 {
     position: absolute;
     right: 35px; /* Position next to the button */
     top: 5px;
-    background-color: var(--bg-secondary);
+    background-color: oklch(from var(--bg-secondary) l c h / 0.9);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: var(--radius-md);
     min-width: 180px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px oklch(0% 0 0 / 0.3);
     z-index: 20;
     padding: 0.25rem 0;
 }
@@ -426,7 +472,7 @@ header h1 {
     color: var(--text-primary);
     border: 1px solid var(--border-color);
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
     font-family: 'Mozilla Text', sans-serif;
     font-weight: 500;
@@ -447,6 +493,12 @@ header h1 {
     background-color: var(--accent-primary);
     color: var(--bg-primary);
     border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px oklch(from var(--accent-primary) l c h / 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
 }
 
 main {
@@ -463,21 +515,23 @@ main {
 .editor {
     height: 100%;
     width: 100%;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     background-color: var(--bg-primary);
     font-family: 'Google Sans Code', monospace;
+    box-shadow: inset 0 2px 10px oklch(0% 0 0 / 0.2);
 }
 
 .autocomplete-suggestions {
     position: absolute;
-    background-color: var(--autocomplete-bg);
+    background-color: oklch(from var(--autocomplete-bg) l c h / 0.9);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: var(--radius-md);
     max-height: 200px;
     overflow-y: auto;
     z-index: 100;
     display: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 30px oklch(0% 0 0 / 0.3);
 }
 
 .autocomplete-item {
@@ -536,7 +590,7 @@ main {
     align-items: center;     /* Center vertically */
     
     /* Appearance */
-    border-radius: 4px; /* Match your button style or make it circular (50%) */
+    border-radius: var(--radius-sm); /* Match your button style or make it circular (50%) */
     background-color: var(--bg-tertiary); /* Use theme background */
     color: var(--text-primary);          /* Use theme text color */
     border: 1px solid var(--border-color); /* Use theme border color */
@@ -594,7 +648,8 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: oklch(0% 0 0 / 0.5);
+    backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -602,11 +657,14 @@ footer {
 }
 
 .popup-content {
-    background-color: var(--bg-secondary);
+    background-color: oklch(from var(--bg-secondary) l c h / 0.9);
+    backdrop-filter: blur(16px);
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
     text-align: center;
     margin: 1rem 2rem;
+    box-shadow: 0 10px 40px oklch(0% 0 0 / 0.3);
+    border: 1px solid var(--border-color);
 }
 
 .popup-buttons {
@@ -621,7 +679,7 @@ footer {
     padding: 0.5rem;
     margin-top: 1rem;
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     background-color: var(--bg-primary);
     color: var(--text-primary);
 }
@@ -643,20 +701,20 @@ footer {
 
 /* Light theme */
 body.light-theme {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f5;
-    --bg-tertiary: #e9e9e9;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --accent-primary: #4285f4;
-    --accent-secondary: #9b72cb;
-    --border-color: #dddddd;
-    --success: #34a853;
-    --warning: #fbbc05;
-    --error: #ea4335;
-    --line-number: #999999;
-    --autocomplete-bg: #ffffff;
-    --autocomplete-hover: #f0f0f0;
+    --bg-primary: oklch(98% 0.01 260);
+    --bg-secondary: oklch(95% 0.01 260);
+    --bg-tertiary: oklch(92% 0.02 260);
+    --text-primary: oklch(25% 0.02 260);
+    --text-secondary: oklch(45% 0.02 260);
+    --accent-primary: oklch(60% 0.18 250);
+    --accent-secondary: oklch(65% 0.18 300);
+    --border-color: oklch(85% 0.02 260);
+    --success: oklch(60% 0.15 150);
+    --warning: oklch(80% 0.15 80);
+    --error: oklch(55% 0.2 20);
+    --line-number: oklch(65% 0.02 260);
+    --autocomplete-bg: oklch(98% 0.01 260);
+    --autocomplete-hover: oklch(90% 0.02 260);
 }
 
 body.light-theme .line-numbers {
@@ -676,7 +734,8 @@ body.light-theme #code-editor {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: oklch(0% 0 0 / 0.6);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -685,13 +744,14 @@ body.light-theme #code-editor {
 
 .preview-modal-content {
     background-color: var(--bg-secondary);
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
     width: 95%; /* Increased */
     height: 90%; /* Increased */
     max-width: 1600px; /* Increased */
     display: flex;
     flex-direction: column;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 50px oklch(0% 0 0 / 0.4);
+    border: 1px solid var(--border-color);
     overflow: hidden;
     position: relative; /* For resize handle */
 }
@@ -797,7 +857,7 @@ body.light-theme #code-editor {
     height: 812px; /* iPhone portrait */
     border: 4px solid var(--border-color);
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 30px oklch(0% 0 0 / 0.3);
 }
 
 .preview-modal-content.preview-custom .preview-modal-body {
@@ -830,11 +890,12 @@ body.light-theme #code-editor {
     position: absolute;
     bottom: 40px; /* Position it above the toggle button */
     right: 0;
-    background-color: var(--bg-tertiary);
+    background-color: oklch(from var(--bg-tertiary) l c h / 0.9);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: var(--radius-md);
     min-width: 180px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px oklch(0% 0 0 / 0.3);
     z-index: 10;
     padding: 0.5rem 0;
 }

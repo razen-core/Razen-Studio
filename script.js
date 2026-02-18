@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <title>Markdown Preview</title>
                         <style>
                             body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
-                            .theme-dark { background-color: #1e1e1e; color: #d4d4d4; }
+                            .theme-dark { background-color: oklch(20% 0.02 260); color: oklch(90% 0.01 260); }
                         </style>
                     </head>
                     <body class="${document.body.classList.contains('light-theme') ? '' : 'theme-dark'}">
