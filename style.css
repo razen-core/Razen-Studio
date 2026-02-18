@@ -474,7 +474,6 @@ header h1 {
     background-color: var(--accent-primary);
     color: var(--bg-primary);
     border-color: var(--accent-primary);
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px oklch(from var(--accent-primary) l c h / 0.3);
 }
 
