@@ -945,7 +945,7 @@ ${convertedHtml}
     require(['vs/editor/editor.main'], function () {
         registerRazenLanguage();
 
-        const savedFont = localStorage.getItem('editorFont') || 'Google Sans Code';
+        const savedFont = localStorage.getItem('editorFont') || 'Geist Mono';
 
         editor = monaco.editor.create(document.getElementById('editor'), {
             value: `// Welcome to Ryx Studio\n// Open a file from the sidebar to start editing.`,

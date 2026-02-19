@@ -6,6 +6,16 @@
     <title>Settings - Razen Studio</title>
     <link rel="stylesheet" href="style.css"> <!-- Main styles -->
     <link rel="stylesheet" href="settings.css"> <!-- Settings specific overrides -->
+
+    <!-- UI Fonts: Space Grotesk + Geist -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Cascadia+Code:wght@200..700&display=swap" rel="stylesheet">
+
+    <!-- Code Fonts: Monaspace Neon + Commit Mono via Fontsource -->
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/monaspace-neon@latest/index.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/commit-mono@latest/index.css" rel="stylesheet">
+
     <link rel="stylesheet" href="icons/css/all.css" />
 </head>
 <body>
@@ -102,16 +112,15 @@
                 <h3>Code Editor Font</h3>
                 <div class="custom-dropdown" id="font-dropdown">
                     <button class="dropdown-toggle" id="font-dropdown-toggle">
-                        <span id="selected-font-name">Google Sans Code</span>
+                        <span id="selected-font-name">Geist Mono</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <ul class="dropdown-menu" id="font-dropdown-menu">
-                        <li data-font="Google Sans Code">Google Sans Code</li>
+                        <li data-font="Geist Mono">Geist Mono</li>
                         <li data-font="JetBrains Mono">JetBrains Mono</li>
-                        <li data-font="Roboto Mono">Roboto Mono</li>
-                        <li data-font="Source Code Pro">Source Code Pro</li>
-                        <li data-font="IBM Plex Mono">IBM Plex Mono</li>
-                        <li data-font="Space Mono">Space Mono</li>
+                        <li data-font="Cascadia Code">Cascadia Code</li>
+                        <li data-font="Monaspace Neon">Monaspace Neon</li>
+                        <li data-font="Commit Mono">Commit Mono</li>
                     </ul>
                 </div>
                 <div class="font-preview-container">
@@ -148,7 +157,7 @@ greeter.greet()
                 <h3>v1.2.1-beta.1 -- Fonts Update & Razen Language Support!</h3>
                 <li>Added: Fonts Switcher with live preview for fonts in the settings page.</li>
                 <li>Fixed: Project Path overflow from card.</li>
-                <li>Improved: Added 6 fonts with Google Sans Code as default font.</li>
+                <li>Improved: Added 5 premium code fonts with Geist Mono as default font.</li>
                 <li>Fixed: Overall UX is much better than before.</li>
                 <li>Added: Razen Lang Support - now provides proper syntax highlighting.</li>
             </ul>
@@ -185,7 +194,6 @@ greeter.greet()
                 <li>Integrated basic syntax highlighting</li>
             </ul>
         </div>
-
 
         <div id="license-content">
             <h2>License</h2>
