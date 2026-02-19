@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function findDefaultFile(nodes) {
         for (const node of nodes) {
-            if (node.type === 'file' && (node.name === 'index.html' || node.name === 'main.js')) {
+            if (node.type === 'file' && (node.name === 'index.html' || node.name === 'main.js' || node.name === 'main.ryx')) {
                 return node;
             }
             if (node.type === 'folder' && node.children) {
@@ -218,7 +218,8 @@ document.addEventListener('DOMContentLoaded', () => {
         f90: { icon: 'fas fa-file-code', colorClass: 'icon-f90', tooltip: 'Fortran' },
         ada: { icon: 'fas fa-file-code', colorClass: 'icon-ada', tooltip: 'Ada' },
         pas: { icon: 'fas fa-file-code', colorClass: 'icon-pas', tooltip: 'Pascal' },
-        rzn: { icon: 'fas fa-file-code', colorClass: 'icon-rzn', tooltip: 'Razen' },
+        rzn: { icon: 'fas fa-file-code', colorClass: 'icon-rzn', tooltip: 'Ryx' },
+        ryx: { icon: 'fas fa-file-code', colorClass: 'icon-rzn', tooltip: 'Ryx' },
 
         // Data & Config
         json: { icon: 'fas fa-file-alt', colorClass: 'icon-json', tooltip: 'JSON' },
@@ -524,6 +525,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'php': 'php', 'rb': 'ruby', 'rs': 'rust', 'sql': 'sql', 'swift': 'swift',
             'kt': 'kotlin', 'lua': 'lua', 'pl': 'perl', 'sh': 'shell', 'md': 'markdown',
             'rzn': 'razen',
+            'ryx': 'razen',
         };
         return languages[ext] || 'plaintext';
     }
@@ -535,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'go': 'Go', 'php': 'PHP', 'ruby': 'Ruby', 'rust': 'Rust', 'sql': 'SQL',
             'swift': 'Swift', 'kotlin': 'Kotlin', 'lua': 'Lua', 'perl': 'Perl',
             'shell': 'Shell', 'markdown': 'Markdown', 'plaintext': 'Plain Text',
-            'razen': 'Razen'
+            'razen': 'Ryx'
         };
         return names[languageId] || languageId;
     }
@@ -666,7 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const savedFont = localStorage.getItem('editorFont') || 'Google Sans Code';
 
         editor = monaco.editor.create(document.getElementById('editor'), {
-            value: `// Welcome to Razen Studio\n// Open a file from the sidebar to start editing.`,
+            value: `// Welcome to Ryx Studio\n// Open a file from the sidebar to start editing.`,
             language: 'plaintext',
             theme: document.body.classList.contains('light-theme') ? 'razen-light' : 'razen-dark',
             fontFamily: savedFont,
