@@ -1,7 +1,7 @@
 /* preview.css */
 body {
     margin: 0;
-    font-family: 'Nata Sans', sans-serif;
+    font-family: var(--font-body);
     background-color: var(--bg-primary);
     color: var(--text-primary);
 }
